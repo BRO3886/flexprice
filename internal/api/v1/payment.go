@@ -22,7 +22,7 @@ func NewPaymentHandler(service service.PaymentService, processor service.Payment
 	return &PaymentHandler{service: service, processor: processor, log: log}
 }
 
-// @Summary Create a new payment
+// @Summary Creaste a new payment
 // @Description Create a new payment with the specified configuration
 // @Tags Payments
 // @Accept json

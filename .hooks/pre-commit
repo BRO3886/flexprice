@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Check for changes in the @api v1 directory or router.go file
+if git diff --cached --name-only | grep -qE '^(internal/api/v1/|internal/api/router.go)$'; then
+    echo "Changes detected in @api v1 or router.go. Running 'make swagger'..."
+    make swagger
+    if [ $? -ne 0 ]; then
+        echo "Failed to run 'make swagger'. Please fix the issues before committing."
+        exit 1
+    fi
+else
+    echo "No changes in @api v1 or router.go. Skipping 'make swagger'."
+fi
