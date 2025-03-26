@@ -4899,7 +4899,7 @@ paths:
             $ref: '#/definitions/errors.ErrorResponse'
       security:
       - ApiKeyAuth: []
-      summary: Create a new payment
+      summary: Creaste a new payment
       tags:
       - Payments
   /payments/{id}:

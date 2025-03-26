@@ -2928,7 +2928,7 @@ const docTemplate = `{
                 "tags": [
                     "Payments"
                 ],
-                "summary": "Create a new payment",
+                "summary": "Creaste a new payment",
                 "parameters": [
                     {
                         "description": "Payment configuration",

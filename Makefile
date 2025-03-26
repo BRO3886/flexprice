@@ -200,7 +200,7 @@ restart-flexprice: stop-flexprice start-flexprice
 
 # Full developer setup with clear instructions
 .PHONY: dev-setup
-dev-setup:
+dev-setup: setup-hooks
 	@echo "Setting up FlexPrice development environment..."
 	@echo "Step 1: Starting infrastructure services..."
 	@docker compose up -d postgres kafka clickhouse temporal temporal-ui
@@ -236,3 +236,9 @@ apply-migration:
 		-d $(shell grep -A 2 "postgres:" config.yaml | grep database | awk '{print $$2}') \
 		-f $(file)
 	@echo "Migration applied successfully"
+
+.PHONY: setup-hooks
+setup-hooks:
+	@echo "Setting up hooks..."
+	@chmod +x ./.hooks/setup.sh
+	@./.hooks/setup.sh
